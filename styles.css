@@ -1,0 +1,104 @@
+*, *::after, ::before{
+    box-sizing: border-box;
+    font-family: Gotham Rounded, sans-serif;
+}
+
+body{
+    background: linear-gradient(to right, hsl(200, 100%, 50%), hsl(175, 100%, 50%));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /*removes vertical scroll bar*/
+}
+
+.analog{
+    width: 300px;
+    border: 2px solid #000; 
+    height: 300px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .8);
+    position: relative;
+}
+
+/*Rotates the clock to place numbers on clock*/
+/*created a var variable since the angle is changing consistently
+and to avoid repetition.*/
+/*make sure to add double -- to create that postion variable*/
+
+.analog .number{
+    --angle: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    transform: rotate(var(--angle));
+    font-size: 1.5rem;
+}
+
+/*each number is placed at a different orientation 
+along the clock.*/
+
+.analog .number1{ --angle: 30deg; }
+.analog .number2{ --angle: 60deg; }
+.analog .number3{ --angle: 90deg; }
+.analog .number4{ --angle: 120deg; }
+.analog .number5{ --angle: 150deg; }
+.analog .number6{ --angle: 180deg; }
+.analog .number7{ --angle: 210deg; }
+.analog .number8{ --angle: 240deg; }
+.analog .number9{ --angle: 270deg; }
+.analog .number10{ --angle: 300deg; }
+.analog .number11{ --angle: 330deg; }
+.analog .number12{ --angle: 360deg; }
+
+/*translate needle horizantally and rotate it.*/
+/*the rotation of the needle will be set in the javascript 
+file so that we can choose how the needles should rotate.*/
+
+.analog .hand{
+    --angle: 0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    background-color: #000;
+    transform: translateX(-50%) rotate(calc(var(--angle) * 1deg)); /*multiplied by 1deg to convert to degrees*/
+    transform-origin: bottom; /*rotates from the origin*/
+    border: 1px solid #FFF;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    z-index: 10; /*Needle lies above the numbers always*/
+}
+
+/*black circle in the middle of clock*/
+
+.analog::after {
+    content: ''; 
+    position: absolute;
+    background-color: #000;
+    z-index: 11;
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.analog .hand.second{
+    width: 3px;
+    height: 45%;
+    background-color: #FF0000;
+}
+
+.analog .hand.minute{
+    width: 7px;
+    height: 40%;
+    background-color: #000;
+}
+
+.analog .hand.hour{
+    width: 10px;
+    height: 35%;
+    background-color: #000;
+}
