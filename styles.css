@@ -57,6 +57,8 @@ along the clock.*/
 /*translate needle horizantally and rotate it.*/
 /*the rotation of the needle will be set in the javascript 
 file so that we can choose how the needles should rotate.*/
+/*rotate by default rotates an object from the center which is why
+I added rotation to the bottom of the needle rather than the center*/
 
 .analog .hand{
     --angle: 0;
