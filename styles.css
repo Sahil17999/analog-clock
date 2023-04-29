@@ -80,7 +80,7 @@ I added rotation to the bottom of the needle rather than the center*/
     content: ''; 
     position: absolute;
     background-color: #000;
-    z-index: 11;
+    z-index: 11; /*blob lies above all other elements*/
     width: 15px;
     height: 15px;
     top: 50%;
