@@ -1,5 +1,8 @@
 setInterval(setAnalog, 1000)
 
+/*matches html element with the selector and returns that element.
+If no element is matched than it will return null.*/
+
 const hourHand = document.querySelector('[data-hour-hand]')
 const minuteHand = document.querySelector('[data-minute-hand]')
 const secondHand = document.querySelector('[data-second-hand]')
