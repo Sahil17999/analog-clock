@@ -25,6 +25,8 @@ body{
 /*created a var variable since the angle is changing consistently
 and to avoid repetition.*/
 /*make sure to add double -- to create that postion variable*/
+/*setting the width and height to 100 percent moves all of the numbers
+top left of the clock box*/
 
 .analog .number{
     --angle: 0;
